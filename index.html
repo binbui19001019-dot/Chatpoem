@@ -3,124 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChatPoem - AI Hỗ Trợ Viết Văn</title>
+<title>ChatPoem AI</title>
 
 <style>
-:root {
-    --primary-color: #6c5ce7;
-    --secondary-color: #a29bfe;
-    --dark-bg: #2d3436;
-}
-
-body {
+body{
+    margin:0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    color: #2d3436;
+    background: linear-gradient(135deg,#6c5ce7,#a29bfe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-nav {
-    background: white;
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.container{
+    background:white;
+    width:90%;
+    max-width:600px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-header {
-    background: linear-gradient(rgba(108,92,231,0.9), rgba(162,155,254,0.8));
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 50px 20px;
-}
-
-footer {
+h1{
     text-align:center;
-    padding:40px;
-    background: var(--dark-bg);
-    color:white;
+    color:#6c5ce7;
 }
 
-button {
-    padding:10px 20px;
-    background: var(--primary-color);
-    color:white;
+input{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+    margin-top:10px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
     border:none;
-    border-radius:5px;
+    border-radius:10px;
+    background:#6c5ce7;
+    color:white;
+    font-size:16px;
     cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#4b3cc4;
+}
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    background:#f5f6fa;
+    border-radius:10px;
+    min-height:100px;
+    white-space:pre-line;
+}
+.footer{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:gray;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">✨ ChatPoem</div>
-</nav>
-
-<header>
-    <h1>ChatPoem - AI Viết Văn Demo</h1>
-    <p>Mô phỏng AI hỗ trợ viết văn trực tiếp trên trình duyệt</p>
-</header>
-
 <div class="container">
+    <h1>✨ ChatPoem AI</h1>
 
-    <h2>Dùng thử AI Viết Văn</h2>
+    <label>Nhập chủ đề bạn muốn viết:</label>
+    <input id="topic" placeholder="Ví dụ: Tình bạn, Gia đình, Mùa thu...">
 
-    <input type="text" id="topic" placeholder="Nhập chủ đề..." 
-           style="padding:10px; width:100%; max-width:400px;">
+    <button onclick="writeEssay()">Tạo bài văn</button>
 
-    <br><br>
+    <div class="result" id="result"></div>
 
-    <button onclick="writeEssay()">Viết văn</button>
-
-    <br><br>
-
-    <pre id="result" style="white-space: pre-wrap;"></pre>
-
+    <div class="footer">
+        © 2026 ChatPoem - AI hỗ trợ sáng tác
+    </div>
 </div>
 
-<footer>
-    © 2026 ChatPoem. Đưa cảm xúc vào từng con chữ.
-</footer>
-
 <script>
-window.writeEssay = function() {
+function writeEssay(){
+    let topic = document.getElementById("topic").value;
+    let result = document.getElementById("result");
 
-    const topic = document.getElementById("topic").value.trim();
-    const result = document.getElementById("result");
-
-    if (!topic) {
+    if(topic === ""){
         alert("Vui lòng nhập chủ đề!");
         return;
     }
 
-    result.innerText = "AI đang viết bài...";
+    result.innerHTML = "Đang sáng tác...";
 
-    setTimeout(() => {
-
-        const essay =
+    setTimeout(()=>{
+        let essay = 
         "Chủ đề: " + topic + "\n\n" +
-        topic + " là một đề tài có ý nghĩa trong cuộc sống. " +
-        "Mỗi người chúng ta đều có những cảm nhận riêng về " + topic + ". " +
-        "Qua đó, ta nhận ra giá trị sâu sắc và bài học quan trọng mà nó mang lại. " +
-        "Chính vì vậy, chúng ta cần trân trọng và suy ngẫm về " + topic + " trong hành trình trưởng thành của mình.";
+        topic + " là một đề tài mang nhiều ý nghĩa trong cuộc sống. " +
+        "Mỗi người đều có góc nhìn riêng về " + topic + ", " +
+        "nhưng tựu chung lại, đó là điều giúp ta trưởng thành và sống tích cực hơn.\n\n" +
+        "Qua việc suy ngẫm về " + topic + ", chúng ta rút ra được nhiều bài học quý giá. " +
+        "Chính những giá trị ấy làm cho cuộc sống trở nên đẹp và đáng trân trọng hơn.";
 
         result.innerText = essay;
-
-    }, 1200);
+    },1000);
 }
 </script>
 
