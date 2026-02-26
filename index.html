@@ -152,12 +152,49 @@ window.writeEssay = async function() {
     document.getElementById("result").innerText = "Có lỗi xảy ra: " + error.message;
   }
 };
-</script>
-</body>
-</html>
-<h2>AI Viết Văn</h2>
+    <h2>AI Viết Văn</h2>
 
-<input type="text" id="topic" placeholder="Nhập chủ đề văn..." style="width: 80%; padding: 8px;">
+<input type="text" id="topic" placeholder="Nhập chủ đề văn..." style="width:80%; padding:8px;">
 <button onclick="writeEssay()">Viết văn</button>
 
-<pre id="result" style="white-space: pre-wrap; margin-top: 20px;"></pre>
+<pre id="result" style="white-space: pre-wrap; margin-top:20px;"></pre>
+
+<script type="module">
+import OpenAI from "https://cdn.jsdelivr.net/npm/openai@4.0.0/+esm";
+
+const openai = new OpenAI({
+  apiKey: "YOUR_API_KEY_HERE",
+  dangerouslyAllowBrowser: true
+});
+
+window.writeEssay = async function() {
+  const topic = document.getElementById("topic").value;
+
+  if (!topic) {
+    alert("Vui lòng nhập chủ đề!");
+    return;
+  }
+
+  document.getElementById("result").innerText = "AI đang viết...";
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "Bạn là AI chuyên viết văn học sinh giỏi, viết mạch lạc, giàu cảm xúc." },
+        { role: "user", content: "Viết bài văn nghị luận khoảng 500 chữ về: " + topic }
+      ]
+    });
+
+    document.getElementById("result").innerText =
+      response.choices[0].message.content;
+
+  } catch (error) {
+    document.getElementById("result").innerText =
+      "Có lỗi xảy ra: " + error.message;
+  }
+};
+</script>
+
+</body>
+</html>
