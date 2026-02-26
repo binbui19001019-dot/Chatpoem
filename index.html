@@ -1,126 +1,105 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatPoem - AI Hỗ Trợ Viết Văn & Làm Thơ</title>
-    <style>
-        :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-bg: #2d3436;
-        }
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            color: #2d3436;
-            scroll-behavior: smooth;
-        }
-        nav {
-            background: white;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        header {
-            background: linear-gradient(rgba(108, 92, 231, 0.9), rgba(162, 155, 254, 0.8)), 
-                        url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-        }
-        .container { max-width: 1100px; margin: auto; padding: 50px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-10px); }
-        .cta-btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .chat-demo {
-            background: #f9f9f9;
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            max-width: 600px;
-            margin: 40px auto;
-            text-align: left;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatPoem - AI Hỗ Trợ Viết Văn</title>
+
+<style>
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --dark-bg: #2d3436;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #2d3436;
+}
+
+nav {
+    background: white;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+header {
+    background: linear-gradient(rgba(108,92,231,0.9), rgba(162,155,254,0.8));
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+footer {
+    text-align:center;
+    padding:40px;
+    background: var(--dark-bg);
+    color:white;
+}
+
+button {
+    padding:10px 20px;
+    background: var(--primary-color);
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
 <nav>
     <div class="logo">✨ ChatPoem</div>
-    <div>
-        <a href="#features" style="margin-right:20px; text-decoration:none; color:inherit;">Tính năng</a>
-        <a href="#pricing" style="text-decoration:none; color:inherit;">Bảng giá</a>
-    </div>
 </nav>
 
 <header>
-    <h1>Khai phóng tâm hồn thi sĩ cùng ChatPoem</h1>
-    <p>AI thông minh giúp bạn sáng tác thơ, viết truyện và hoàn thiện văn bản chỉ trong vài giây.</p>
-    <a href="#" class="cta-btn">Bắt đầu sáng tạo miễn phí</a>
+    <h1>ChatPoem - AI Viết Văn Demo</h1>
+    <p>Mô phỏng AI hỗ trợ viết văn trực tiếp trên trình duyệt</p>
 </header>
 
-<div class="container" id="features">
-    <h2 style="text-align:center; margin-bottom: 50px;">Quyền năng của ChatPoem</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>✍️ Viết văn thông minh</h3>
-            <p>Nhập ý tưởng thô, ChatPoem sẽ giúp bạn phát triển thành một bài văn nghị luận hoặc miêu tả súc tích.</p>
-        </div>
-        <div class="card">
-            <h3>📜 Sáng tác thơ ca</h3>
-            <p>Từ thơ lục bát đến thơ tự do, AI hiểu rõ vần điệu và thanh điệu để tạo nên những vần thơ đầy cảm xúc.</p>
-        </div>
-        <div class="card">
-            <h3>🎭 Hiệu chỉnh tông giọng</h3>
-            <p>Dễ dàng thay đổi văn phong từ trang trọng sang lãng mạn hoặc hóm hỉnh chỉ với một yêu cầu.</p>
-        </div>
-    </div>
+<div class="container">
+
+    <h2>Dùng thử AI Viết Văn</h2>
+
+    <input type="text" id="topic" placeholder="Nhập chủ đề..." 
+           style="padding:10px; width:100%; max-width:400px;">
+
+    <br><br>
+
+    <button onclick="writeEssay()">Viết văn</button>
+
+    <br><br>
+
+    <pre id="result" style="white-space: pre-wrap;"></pre>
+
 </div>
 
-<div style="background: #f0f2f5; padding: 60px 0;">
-    <div class="container">
-        <h2 style="text-align:center;">Dùng thử ChatPoem</h2>
-        <div class="chat-demo">
-            <p><strong>Bạn:</strong> <i>"Viết một câu thơ về mùa thu Hà Nội"</i></p>
-            <p style="color: var(--primary-color);"><strong>ChatPoem:</strong> "Hà Nội mùa thu vàng lá đổ,<br>Gió heo may chạm khẽ mặt hồ trong."</p>
-        </div>
-    </div>
-</div>
-
-<footer style="text-align:center; padding: 40px; background: var(--dark-bg); color: white;">
-    <p>&copy; 2026 ChatPoem. Đưa cảm xúc vào từng con chữ.</p>
+<footer>
+    © 2026 ChatPoem. Đưa cảm xúc vào từng con chữ.
 </footer>
+
 <script>
 window.writeEssay = function() {
-    const topic = document.getElementById("topic").value;
+
+    const topic = document.getElementById("topic").value.trim();
     const result = document.getElementById("result");
 
     if (!topic) {
@@ -128,14 +107,22 @@ window.writeEssay = function() {
         return;
     }
 
-    result.innerText = "Đang viết bài...";
+    result.innerText = "AI đang viết bài...";
 
     setTimeout(() => {
-        result.innerText = 
+
+        const essay =
         "Chủ đề: " + topic + "\n\n" +
-        topic + " là một đề tài đầy ý nghĩa trong cuộc sống. " +
-        "Mỗi người chúng ta đều có những cảm nhận riêng về " + topic + 
-        ". Qua đó, ta thấy được giá trị sâu sắc và bài học quan trọng mà nó mang lại.";
-    }, 1000);
+        topic + " là một đề tài có ý nghĩa trong cuộc sống. " +
+        "Mỗi người chúng ta đều có những cảm nhận riêng về " + topic + ". " +
+        "Qua đó, ta nhận ra giá trị sâu sắc và bài học quan trọng mà nó mang lại. " +
+        "Chính vì vậy, chúng ta cần trân trọng và suy ngẫm về " + topic + " trong hành trình trưởng thành của mình.";
+
+        result.innerText = essay;
+
+    }, 1200);
 }
 </script>
+
+</body>
+</html>
