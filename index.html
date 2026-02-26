@@ -118,6 +118,46 @@
 <footer style="text-align:center; padding: 40px; background: var(--dark-bg); color: white;">
     <p>&copy; 2026 ChatPoem. Đưa cảm xúc vào từng con chữ.</p>
 </footer>
+<script type="module">
+import OpenAI from "https://cdn.jsdelivr.net/npm/openai@4.0.0/+esm";
 
+const openai = new OpenAI({
+  apiKey: "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",
+  dangerouslyAllowBrowser: true
+});
+
+window.writeEssay = async function() {
+  const topic = document.getElementById("topic").value;
+
+  if (!topic) {
+    alert("Vui lòng nhập chủ đề!");
+    return;
+  }
+
+  document.getElementById("result").innerText = "AI đang viết...";
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "Bạn là AI chuyên viết văn học sinh giỏi, viết rõ ràng, mạch lạc." },
+        { role: "user", content: "Viết bài văn nghị luận khoảng 500 chữ về: " + topic }
+      ]
+    });
+
+    document.getElementById("result").innerText =
+      response.choices[0].message.content;
+
+  } catch (error) {
+    document.getElementById("result").innerText = "Có lỗi xảy ra: " + error.message;
+  }
+};
+</script>
 </body>
 </html>
+<h2>AI Viết Văn</h2>
+
+<input type="text" id="topic" placeholder="Nhập chủ đề văn..." style="width: 80%; padding: 8px;">
+<button onclick="writeEssay()">Viết văn</button>
+
+<pre id="result" style="white-space: pre-wrap; margin-top: 20px;"></pre>
