@@ -19,7 +19,7 @@ body{
 .container{
     background:white;
     width:90%;
-    max-width:600px;
+    max-width:650px;
     padding:30px;
     border-radius:20px;
     box-shadow:0 20px 40px rgba(0,0,0,0.2);
@@ -61,6 +61,118 @@ button:hover{
     padding:15px;
     background:#f5f6fa;
     border-radius:10px;
+    min-height:150px;
+    white-space:pre-line;
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:gray;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>✨ ChatPoem AI</h1>
+
+    <label>Nhập chủ đề bạn muốn viết:</label>
+    <input id="topic" placeholder="Ví dụ: Tình bạn, Vợ chồng A Phủ, Sự nỗ lực...">
+
+    <label>Chọn phong cách:</label>
+    <select id="style">
+        <option value="student">Văn học sinh</option>
+        <option value="social">Nghị luận xã hội (ngắn)</option>
+        <option value="poem">Thơ</option>
+        <option value="emotional">Văn cảm xúc</option>
+        <option value="inspire">Truyền cảm hứng</option>
+        <option value="nlxh">Nghị luận xã hội (dài chuẩn thi)</option>
+        <option value="nlvh">Nghị luận văn học (phân tích tác phẩm)</option>
+    </select>
+
+    <button onclick="writeEssay()">Tạo bài văn</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="footer">
+        © 2026 ChatPoem - AI hỗ trợ sáng tác
+    </div>
+</div>
+
+<script>
+function writeEssay(){
+    let topic = document.getElementById("topic").value;
+    let style = document.getElementById("style").value;
+    let result = document.getElementById("result");
+
+    if(topic === ""){
+        alert("Vui lòng nhập chủ đề!");
+        return;
+    }
+
+    result.innerHTML = "Đang sáng tác... ✨";
+
+    setTimeout(()=>{
+        let essay = "";
+
+        if(style === "nlxh"){
+            essay =
+            "Trong cuộc sống hiện đại ngày nay, mỗi con người đều phải đối mặt với nhiều vấn đề khác nhau. " +
+            topic + " là một trong những vấn đề có ý nghĩa sâu sắc, ảnh hưởng trực tiếp đến sự phát triển của cá nhân và xã hội.\n\n" +
+
+            "Trước hết, cần hiểu rằng " + topic + " là gì? " +
+            topic + " không chỉ là một khái niệm mang tính lý thuyết mà còn là giá trị tinh thần định hướng suy nghĩ và hành động của con người.\n\n" +
+
+            "Bên cạnh đó, " + topic + " giữ vai trò vô cùng quan trọng. " +
+            "Nó giúp con người hoàn thiện nhân cách, sống có trách nhiệm hơn và biết hướng tới những điều tốt đẹp.\n\n" +
+
+            "Trong thực tế, nhiều tấm gương đã chứng minh giá trị của " + topic + ". " +
+            "Nhờ nhận thức đúng đắn và hành động tích cực, họ đã đạt được thành công và góp phần xây dựng xã hội văn minh hơn.\n\n" +
+
+            "Tuy nhiên, vẫn còn không ít người chưa ý thức đầy đủ về " + topic + ", " +
+            "thậm chí có những hành động đi ngược lại những giá trị tích cực ấy.\n\n" +
+
+            "Vì vậy, mỗi chúng ta cần tự rèn luyện bản thân, nâng cao nhận thức và biến " + topic +
+            " thành hành động cụ thể trong đời sống hằng ngày.\n\n" +
+
+            "Tóm lại, " + topic + " có ý nghĩa vô cùng quan trọng. " +
+            "Hiểu đúng và thực hành đúng sẽ giúp mỗi người trở nên tốt đẹp hơn và góp phần xây dựng xã hội phát triển bền vững.";
+        }
+
+        else if(style === "nlvh"){
+            essay =
+            topic + " là một tác phẩm tiêu biểu để lại nhiều ấn tượng sâu sắc trong lòng người đọc.\n\n" +
+
+            "Trước hết, về nội dung, tác phẩm đã phản ánh chân thực hiện thực cuộc sống và số phận con người. " +
+            "Qua đó, tác giả thể hiện tư tưởng nhân văn sâu sắc.\n\n" +
+
+            "Về nghệ thuật, " + topic +
+            " gây ấn tượng bởi cách xây dựng nhân vật sinh động, ngôn ngữ giàu hình ảnh và cảm xúc. " +
+            "Các chi tiết tiêu biểu được lựa chọn kỹ lưỡng đã làm nổi bật chủ đề của tác phẩm.\n\n" +
+
+            "Không chỉ dừng lại ở giá trị phản ánh, tác phẩm còn mang ý nghĩa giáo dục sâu sắc. " +
+            "Nó giúp người đọc suy ngẫm về con người, về cuộc sống và về những giá trị tốt đẹp cần được gìn giữ.\n\n" +
+
+            "Có thể khẳng định rằng " + topic +
+            " không chỉ có giá trị về mặt nghệ thuật mà còn mang ý nghĩa nhân văn sâu sắc, " +
+            "xứng đáng là một tác phẩm có vị trí quan trọng trong nền văn học.";
+        }
+
+        else{
+            essay = "Chức năng khác vẫn giữ nguyên như trước.";
+        }
+
+        result.innerText = essay;
+
+    },1000);
+}
+</script>
+
+</body>
+</html>    border-radius:10px;
     min-height:120px;
     white-space:pre-line;
 }
