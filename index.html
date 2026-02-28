@@ -30,7 +30,7 @@ h1{
     color:#6c5ce7;
 }
 
-input{
+input, select{
     width:100%;
     padding:15px;
     border-radius:10px;
@@ -61,9 +61,10 @@ button:hover{
     padding:15px;
     background:#f5f6fa;
     border-radius:10px;
-    min-height:100px;
+    min-height:120px;
     white-space:pre-line;
 }
+
 .footer{
     text-align:center;
     margin-top:15px;
@@ -81,6 +82,15 @@ button:hover{
     <label>Nhập chủ đề bạn muốn viết:</label>
     <input id="topic" placeholder="Ví dụ: Tình bạn, Gia đình, Mùa thu...">
 
+    <label>Chọn phong cách:</label>
+    <select id="style">
+        <option value="student">Văn học sinh</option>
+        <option value="social">Nghị luận xã hội</option>
+        <option value="poem">Thơ</option>
+        <option value="emotional">Văn cảm xúc</option>
+        <option value="inspire">Truyền cảm hứng</option>
+    </select>
+
     <button onclick="writeEssay()">Tạo bài văn</button>
 
     <div class="result" id="result"></div>
@@ -93,6 +103,7 @@ button:hover{
 <script>
 function writeEssay(){
     let topic = document.getElementById("topic").value;
+    let style = document.getElementById("style").value;
     let result = document.getElementById("result");
 
     if(topic === ""){
@@ -100,18 +111,60 @@ function writeEssay(){
         return;
     }
 
-    result.innerHTML = "Đang sáng tác...";
+    result.innerHTML = "Đang sáng tác... ✨";
 
     setTimeout(()=>{
-        let essay = 
-        "Chủ đề: " + topic + "\n\n" +
-        topic + " là một đề tài mang nhiều ý nghĩa trong cuộc sống. " +
-        "Mỗi người đều có góc nhìn riêng về " + topic + ", " +
-        "nhưng tựu chung lại, đó là điều giúp ta trưởng thành và sống tích cực hơn.\n\n" +
-        "Qua việc suy ngẫm về " + topic + ", chúng ta rút ra được nhiều bài học quý giá. " +
-        "Chính những giá trị ấy làm cho cuộc sống trở nên đẹp và đáng trân trọng hơn.";
+        let essay = "";
+
+        if(style === "student"){
+            essay =
+            "Chủ đề: " + topic + "\n\n" +
+            "Mở bài:\n" +
+            topic + " là một đề tài quen thuộc nhưng luôn mang nhiều ý nghĩa trong cuộc sống.\n\n" +
+            "Thân bài:\n" +
+            topic + " giúp con người hiểu rõ hơn về những giá trị tốt đẹp xung quanh mình. " +
+            "Thông qua đó, chúng ta học được cách sống có trách nhiệm, yêu thương và sẻ chia.\n\n" +
+            "Kết bài:\n" +
+            "Tóm lại, " + topic + " giữ vai trò quan trọng và đáng được trân trọng trong cuộc sống.";
+
+        } 
+        else if(style === "social"){
+            essay =
+            "Trong xã hội hiện đại, " + topic + " đang trở thành một vấn đề nhận được nhiều sự quan tâm.\n\n" +
+            "Thực tế cho thấy " + topic + " có ảnh hưởng sâu rộng đến cá nhân và cộng đồng. " +
+            "Việc nhìn nhận đúng đắn và có hành động thiết thực sẽ giúp phát huy những giá trị tích cực mà nó mang lại.\n\n" +
+            "Mỗi người cần có ý thức xây dựng xã hội tốt đẹp hơn thông qua việc hiểu và thực hành " + topic + ".";
+
+        } 
+        else if(style === "poem"){
+            essay =
+            topic + "\n\n" +
+            topic + " đến nhẹ như làn gió,\n" +
+            "Chạm vào tim những ước mơ xanh.\n" +
+            topic + " là tia nắng nhỏ,\n" +
+            "Soi cuộc đời thêm long lanh.\n\n" +
+            "Dẫu thời gian trôi lặng lẽ,\n" +
+            topic + " vẫn ở mãi trong tim.";
+
+        } 
+        else if(style === "emotional"){
+            essay =
+            topic + " không chỉ là một khái niệm,\n" +
+            "mà còn là cảm xúc lắng sâu trong trái tim mỗi người.\n\n" +
+            "Khi nghĩ về " + topic + ", ta chợt thấy lòng mình dịu lại, " +
+            "như tìm được một điểm tựa bình yên giữa cuộc sống bộn bề.";
+
+        } 
+        else if(style === "inspire"){
+            essay =
+            topic + " chính là động lực giúp ta bước tiếp mỗi ngày.\n\n" +
+            "Đừng từ bỏ khi còn tin vào " + topic + ". " +
+            "Chỉ cần kiên trì và nỗ lực, bạn sẽ chạm tới ước mơ của mình.\n\n" +
+            "Hãy bắt đầu ngay hôm nay và biến " + topic + " thành sức mạnh của bạn!";
+        }
 
         result.innerText = essay;
+
     },1000);
 }
 </script>
