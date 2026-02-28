@@ -61,7 +61,7 @@ button:hover{
     padding:15px;
     background:#f5f6fa;
     border-radius:10px;
-    min-height:150px;
+    min-height:200px;
     white-space:pre-line;
 }
 
@@ -79,18 +79,13 @@ button:hover{
 <div class="container">
     <h1>✨ ChatPoem AI</h1>
 
-    <label>Nhập chủ đề bạn muốn viết:</label>
-    <input id="topic" placeholder="Ví dụ: Tình bạn, Vợ chồng A Phủ, Sự nỗ lực...">
+    <label>Nhập chủ đề:</label>
+    <input id="topic" placeholder="Ví dụ: Sự nỗ lực, Vợ chồng A Phủ...">
 
-    <label>Chọn phong cách:</label>
+    <label>Chọn dạng bài:</label>
     <select id="style">
-        <option value="student">Văn học sinh</option>
-        <option value="social">Nghị luận xã hội (ngắn)</option>
-        <option value="poem">Thơ</option>
-        <option value="emotional">Văn cảm xúc</option>
-        <option value="inspire">Truyền cảm hứng</option>
-        <option value="nlxh">Nghị luận xã hội (dài chuẩn thi)</option>
-        <option value="nlvh">Nghị luận văn học (phân tích tác phẩm)</option>
+        <option value="nlxh">Nghị luận xã hội</option>
+        <option value="nlvh">Nghị luận văn học</option>
     </select>
 
     <button onclick="writeEssay()">Tạo bài văn</button>
@@ -120,159 +115,40 @@ function writeEssay(){
 
         if(style === "nlxh"){
             essay =
-            "Trong cuộc sống hiện đại ngày nay, mỗi con người đều phải đối mặt với nhiều vấn đề khác nhau. " +
-            topic + " là một trong những vấn đề có ý nghĩa sâu sắc, ảnh hưởng trực tiếp đến sự phát triển của cá nhân và xã hội.\n\n" +
+            "Trong cuộc sống hiện đại ngày nay, " + topic + " là một vấn đề có ý nghĩa quan trọng đối với mỗi cá nhân và toàn xã hội.\n\n" +
 
-            "Trước hết, cần hiểu rằng " + topic + " là gì? " +
-            topic + " không chỉ là một khái niệm mang tính lý thuyết mà còn là giá trị tinh thần định hướng suy nghĩ và hành động của con người.\n\n" +
+            "Trước hết, cần hiểu rằng " + topic + " không chỉ là một khái niệm đơn thuần mà còn là giá trị định hướng suy nghĩ và hành động của con người.\n\n" +
 
-            "Bên cạnh đó, " + topic + " giữ vai trò vô cùng quan trọng. " +
-            "Nó giúp con người hoàn thiện nhân cách, sống có trách nhiệm hơn và biết hướng tới những điều tốt đẹp.\n\n" +
+            "Bên cạnh đó, " + topic + " giữ vai trò to lớn trong việc hình thành nhân cách và hoàn thiện bản thân. " +
+            "Khi mỗi người nhận thức đúng và thực hành tốt " + topic + ", xã hội sẽ ngày càng phát triển văn minh, tích cực hơn.\n\n" +
 
-            "Trong thực tế, nhiều tấm gương đã chứng minh giá trị của " + topic + ". " +
-            "Nhờ nhận thức đúng đắn và hành động tích cực, họ đã đạt được thành công và góp phần xây dựng xã hội văn minh hơn.\n\n" +
+            "Tuy nhiên, trong thực tế vẫn còn những biểu hiện lệch lạc, thiếu ý thức về " + topic + ", " +
+            "điều đó gây ảnh hưởng không nhỏ đến cộng đồng.\n\n" +
 
-            "Tuy nhiên, vẫn còn không ít người chưa ý thức đầy đủ về " + topic + ", " +
-            "thậm chí có những hành động đi ngược lại những giá trị tích cực ấy.\n\n" +
-
-            "Vì vậy, mỗi chúng ta cần tự rèn luyện bản thân, nâng cao nhận thức và biến " + topic +
+            "Vì vậy, mỗi chúng ta cần tự rèn luyện, nâng cao nhận thức và biến " + topic +
             " thành hành động cụ thể trong đời sống hằng ngày.\n\n" +
 
             "Tóm lại, " + topic + " có ý nghĩa vô cùng quan trọng. " +
-            "Hiểu đúng và thực hành đúng sẽ giúp mỗi người trở nên tốt đẹp hơn và góp phần xây dựng xã hội phát triển bền vững.";
+            "Hiểu đúng và thực hành đúng sẽ giúp chúng ta trở thành người có ích cho xã hội.";
         }
 
         else if(style === "nlvh"){
             essay =
             topic + " là một tác phẩm tiêu biểu để lại nhiều ấn tượng sâu sắc trong lòng người đọc.\n\n" +
 
-            "Trước hết, về nội dung, tác phẩm đã phản ánh chân thực hiện thực cuộc sống và số phận con người. " +
-            "Qua đó, tác giả thể hiện tư tưởng nhân văn sâu sắc.\n\n" +
+            "Về nội dung, tác phẩm đã phản ánh chân thực hiện thực đời sống và số phận con người, " +
+            "qua đó thể hiện tư tưởng nhân văn sâu sắc của tác giả.\n\n" +
 
             "Về nghệ thuật, " + topic +
             " gây ấn tượng bởi cách xây dựng nhân vật sinh động, ngôn ngữ giàu hình ảnh và cảm xúc. " +
-            "Các chi tiết tiêu biểu được lựa chọn kỹ lưỡng đã làm nổi bật chủ đề của tác phẩm.\n\n" +
+            "Những chi tiết đặc sắc đã góp phần làm nổi bật chủ đề tư tưởng của tác phẩm.\n\n" +
 
-            "Không chỉ dừng lại ở giá trị phản ánh, tác phẩm còn mang ý nghĩa giáo dục sâu sắc. " +
-            "Nó giúp người đọc suy ngẫm về con người, về cuộc sống và về những giá trị tốt đẹp cần được gìn giữ.\n\n" +
+            "Không chỉ dừng lại ở giá trị phản ánh hiện thực, tác phẩm còn mang ý nghĩa giáo dục sâu sắc, " +
+            "giúp người đọc suy ngẫm về con người và cuộc sống.\n\n" +
 
             "Có thể khẳng định rằng " + topic +
-            " không chỉ có giá trị về mặt nghệ thuật mà còn mang ý nghĩa nhân văn sâu sắc, " +
-            "xứng đáng là một tác phẩm có vị trí quan trọng trong nền văn học.";
-        }
-
-        else{
-            essay = "Chức năng khác vẫn giữ nguyên như trước.";
-        }
-
-        result.innerText = essay;
-
-    },1000);
-}
-</script>
-
-</body>
-</html>    border-radius:10px;
-    min-height:120px;
-    white-space:pre-line;
-}
-
-.footer{
-    text-align:center;
-    margin-top:15px;
-    font-size:14px;
-    color:gray;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-    <h1>✨ ChatPoem AI</h1>
-
-    <label>Nhập chủ đề bạn muốn viết:</label>
-    <input id="topic" placeholder="Ví dụ: Tình bạn, Gia đình, Mùa thu...">
-
-    <label>Chọn phong cách:</label>
-    <select id="style">
-        <option value="student">Văn học sinh</option>
-        <option value="social">Nghị luận xã hội</option>
-        <option value="poem">Thơ</option>
-        <option value="emotional">Văn cảm xúc</option>
-        <option value="inspire">Truyền cảm hứng</option>
-    </select>
-
-    <button onclick="writeEssay()">Tạo bài văn</button>
-
-    <div class="result" id="result"></div>
-
-    <div class="footer">
-        © 2026 ChatPoem - AI hỗ trợ sáng tác
-    </div>
-</div>
-
-<script>
-function writeEssay(){
-    let topic = document.getElementById("topic").value;
-    let style = document.getElementById("style").value;
-    let result = document.getElementById("result");
-
-    if(topic === ""){
-        alert("Vui lòng nhập chủ đề!");
-        return;
-    }
-
-    result.innerHTML = "Đang sáng tác... ✨";
-
-    setTimeout(()=>{
-        let essay = "";
-
-        if(style === "student"){
-            essay =
-            "Chủ đề: " + topic + "\n\n" +
-            "Mở bài:\n" +
-            topic + " là một đề tài quen thuộc nhưng luôn mang nhiều ý nghĩa trong cuộc sống.\n\n" +
-            "Thân bài:\n" +
-            topic + " giúp con người hiểu rõ hơn về những giá trị tốt đẹp xung quanh mình. " +
-            "Thông qua đó, chúng ta học được cách sống có trách nhiệm, yêu thương và sẻ chia.\n\n" +
-            "Kết bài:\n" +
-            "Tóm lại, " + topic + " giữ vai trò quan trọng và đáng được trân trọng trong cuộc sống.";
-
-        } 
-        else if(style === "social"){
-            essay =
-            "Trong xã hội hiện đại, " + topic + " đang trở thành một vấn đề nhận được nhiều sự quan tâm.\n\n" +
-            "Thực tế cho thấy " + topic + " có ảnh hưởng sâu rộng đến cá nhân và cộng đồng. " +
-            "Việc nhìn nhận đúng đắn và có hành động thiết thực sẽ giúp phát huy những giá trị tích cực mà nó mang lại.\n\n" +
-            "Mỗi người cần có ý thức xây dựng xã hội tốt đẹp hơn thông qua việc hiểu và thực hành " + topic + ".";
-
-        } 
-        else if(style === "poem"){
-            essay =
-            topic + "\n\n" +
-            topic + " đến nhẹ như làn gió,\n" +
-            "Chạm vào tim những ước mơ xanh.\n" +
-            topic + " là tia nắng nhỏ,\n" +
-            "Soi cuộc đời thêm long lanh.\n\n" +
-            "Dẫu thời gian trôi lặng lẽ,\n" +
-            topic + " vẫn ở mãi trong tim.";
-
-        } 
-        else if(style === "emotional"){
-            essay =
-            topic + " không chỉ là một khái niệm,\n" +
-            "mà còn là cảm xúc lắng sâu trong trái tim mỗi người.\n\n" +
-            "Khi nghĩ về " + topic + ", ta chợt thấy lòng mình dịu lại, " +
-            "như tìm được một điểm tựa bình yên giữa cuộc sống bộn bề.";
-
-        } 
-        else if(style === "inspire"){
-            essay =
-            topic + " chính là động lực giúp ta bước tiếp mỗi ngày.\n\n" +
-            "Đừng từ bỏ khi còn tin vào " + topic + ". " +
-            "Chỉ cần kiên trì và nỗ lực, bạn sẽ chạm tới ước mơ của mình.\n\n" +
-            "Hãy bắt đầu ngay hôm nay và biến " + topic + " thành sức mạnh của bạn!";
+            " là một tác phẩm có giá trị nội dung và nghệ thuật đặc sắc, " +
+            "để lại dấu ấn quan trọng trong nền văn học.";
         }
 
         result.innerText = essay;
